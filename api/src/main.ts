@@ -1,14 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import cors from "cors"
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import * as morgan from 'morgan';
 
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
-    cors: true,
-  });
+  const app = await NestFactory.create(AppModule);
+  app.use(cors());
   const config = new DocumentBuilder()
     .setTitle('Cats example')
     .setDescription('The cats API description')
