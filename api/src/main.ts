@@ -8,13 +8,6 @@ import * as morgan from 'morgan';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: [
-      'https://illustrious-zabaione-6d1aee.netlify.app',
-    ],
-    methods: ["GET", "POST", "PATCH", "DELETE"],
-    credentials: true,
-  });
   const config = new DocumentBuilder()
     .setTitle('Cats example')
     .setDescription('The cats API description')
@@ -25,6 +18,11 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+  app.enableCors({
+    origin: '*',
+    methods: 'GET, PUT, POST, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
+  });
   await app.listen(3000);
 }
 bootstrap();
