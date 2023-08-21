@@ -1,0 +1,37 @@
+.wrapper {
+	width: 100%;
+	min-height: 70px;
+	background-color: #E19F66;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	padding: 12px;
+	padding-right: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.infoWrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.greenSercle {
+	border-radius: 100%;
+	background-color: green;
+	width: 10px;
+	height: 10px;
+}
+
+.redSercle {
+	border-radius: 100%;
+	background-color: red;
+	width: 10px;
+	height: 10px;
+}

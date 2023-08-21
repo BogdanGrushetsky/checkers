@@ -1,0 +1,19 @@
+.bord2 {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	width: calc(100px * 8);
+	height: calc(100px * 8);
+}
+
+.bord2__line {
+	width: 100px;
+	height: 100px;
+	text-align: center;
+}
+
+.bord2__line2 {
+	position: absolute;
+	right: -60px;
+	top: 50px;
+}

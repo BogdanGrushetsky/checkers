@@ -1,0 +1,18 @@
+.cell {
+	display: flex;
+	width: 100px;
+	height: 100px;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.cell.light {
+	background-color: #e3b778;
+}
+
+
+
+.cell.dark {
+	background-color: #000;
+}

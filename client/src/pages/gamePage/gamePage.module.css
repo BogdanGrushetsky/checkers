@@ -1,0 +1,15 @@
+.winnerBlock {
+	background-color: #e3b778;
+	padding: 20px;
+	border-radius: 10px;
+	color: white;
+	font-size: 24px;
+	text-align: center;
+}
+
+.winner {
+	display: flex;
+	gap: 10px;
+	color: white;
+	font-size: 18px;
+}

@@ -1,0 +1,47 @@
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+	border-radius: 16px;
+	padding-top: 0px;
+}
+
+.ButtonDelete {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.player {
+	display: flex;
+	flex-direction: column;
+}
+
+.playerWhite {
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+
+.wrapperMain {
+	position: relative;
+	background-color: #E19F66;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+.wrapperButton {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper h4 {
+	margin-top: 0px;
+}
+
+.fire {
+	font-size: 44px;
+}

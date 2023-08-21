@@ -1,0 +1,42 @@
+.header {
+	position: sticky;
+	top: 0;
+	height: 100px;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	background-color: #DDA15E;
+	justify-content: space-between;
+	z-index: 1;
+}
+
+.wrapperLogo {
+	color: white;
+	display: flex;
+	gap: 10px;
+	font-size: 24px;
+}
+
+.register {
+	border-radius: 10px;
+	cursor: pointer;
+	background-color: white;
+	padding: 20px;
+	gap: 5px;
+	height: 70px;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo {
+	display: flex;
+	width: 60px;
+	height: 60px;
+}
+
+.wrapper {
+	display: flex;
+	gap: 20px;
+}

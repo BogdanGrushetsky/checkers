@@ -1,0 +1,34 @@
+.icon {
+	position: relative;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+}
+
+.icon.active {
+	animation: scaling 0.5s infinite alternate;
+}
+
+.icon.active::after {
+	content: "";
+	position: absolute;
+
+	top: -50px;
+	left: -50px;
+	width: 10px;
+	height: 10px;
+
+	border-radius: 50%;
+	background-color: white;
+}
+
+@keyframes scaling {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.1);
+	}
+}
