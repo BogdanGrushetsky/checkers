@@ -17,13 +17,13 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  // app.enableCors({
-  //   origin: [
-  //     'http://localhost:5173',
-  //   ],
-  //   methods: ["GET", "POST", "PATCH", "DELETE"],
-  //   credentials: true,
-  // });
+  app.enableCors({
+    origin: [
+      'https://illustrious-zabaione-6d1aee.netlify.app/',
+    ],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true,
+  });
   await app.listen(3000);
 }
 bootstrap();
