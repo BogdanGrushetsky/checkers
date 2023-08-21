@@ -23,12 +23,14 @@ function GamePage() {
 	}, [])
 	useLayoutEffect(() => {
 		if (idGame) {
-			QueryClient.getGameBoard(idGame).then(res => {
-				Stores.setGame(res.bord, res.ternMove, res._id, res.whitePlayer, res.blackPlayer)
-				if (res.winner) navigate('/')
-			})
+			if (Stores.user?._id) {
+				QueryClient.getGameBoard(idGame).then(res => {
+					Stores.setGame(res.bord, res.ternMove, res._id, res.whitePlayer, res.blackPlayer)
+					if (res.winner) navigate('/')
+				})
+			}
 		}
-	}, [])
+	}, [idGame, navigate])
 
 	const showGmae = stateWinner ? winnerBlock(stateWinner) : <Bord />
 	return (

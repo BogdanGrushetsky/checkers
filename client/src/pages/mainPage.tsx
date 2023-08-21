@@ -18,7 +18,6 @@ function MainPage() {
 		QueryClient.getAllRatingUsers().then(res => setUserRating(res))
 		if (Stores.user?._id) {
 			QueryClient.getAllMyGame(Stores.user?._id).then(res => setMyGame(res))
-			console.log(myGame)
 		}
 	}, [Stores.user?._id])
 	const listOnlinePlayer = userOnline?.map((el: userInterface) => <CardPlayer key={el._id} {...el} />)

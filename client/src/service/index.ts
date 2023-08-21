@@ -57,7 +57,8 @@ class QueryClient {
 
 	}
 	async deleteGame(id: string) {
-		return await $api.delete(`/game/${id}`).then(res => res.data)
+
+		return await $api.delete(`/game/${id}`).then(res => res.data).finally(() => location.reload())
 	}
 
 	async getHistoryGameAdmin(id: string) {

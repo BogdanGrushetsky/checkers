@@ -10,23 +10,33 @@ class StoreClass {
 	bord: BoardModel | null = null
 	activeFigure: FigureModel | null = null
 	selectBlock: mapInterface | null = null
-	turn: PlayerInterface
+	turn: PlayerInterface | null = null
 	idGame: string | null = null
 	figureToMove: FigureModel[] = []
 	side: PlayerInterface | null = null
 	constructor() {
 		makeAutoObservable(this);
-		this.turn = whitePlayer
 	}
 
 	setGame(board: BoardModel, turn: 'white' | 'black', idGame: string, whitePlayerId: string, blackPlayerId: string) {
+		this.bord = null,
+			this.activeFigure == null
+		this.selectBlock = null
+		this.turn = null
+		this.idGame = null
+		this.figureToMove = []
+		this.side = null
+
 		if (turn === 'white') {
 			this.turn = whitePlayer
 		} else {
 			this.turn = blackPlayer
 		}
+		console.log(whitePlayerId, this.user?._id, blackPlayerId)
+		console.log(whitePlayerId === this.user?._id, blackPlayerId === this.user?._id)
 		if (whitePlayerId === this.user?._id) this.side = whitePlayer
 		if (blackPlayerId === this.user?._id) this.side = blackPlayer
+		console.log(this.side)
 		this.idGame = idGame
 		this.bord = new BoardModel(board)
 		this.cheacCheaker()
@@ -43,10 +53,11 @@ class StoreClass {
 	}
 
 	setActiveBlock(data: FigureModel) {
-		console.log(this.figureToMove, this.turn.color, this.side?.color)
-		if (this.turn.color !== this.side?.color) return
+		console.log(this.turn?.color, this.side?.color, this.figureToMove)
+		if (!this.turn) return
+		if (this.turn?.color !== this.side?.color) return
 		if (this.figureToMove.length && !this.figureToMove?.some(el => data.id === el?.id)) {
-			console.log(1)
+
 			this.activeFigure = null
 			return
 		}
@@ -64,10 +75,11 @@ class StoreClass {
 		}
 	}
 	cheacCheaker() {
+		if (!this.turn) return
 		if (this.bord && this.turn.color == this.side?.color) {
 			console.log(this.bord)
 			this.bord.figurs.forEach(el => {
-				if (el.color === this.turn.color)
+				if (el.color === this.turn?.color)
 					if (el.moveFigure(this.bord as BoardModel)?.some(el => el?.cheakerDellet)) {
 						this.figureToMove?.push(el)
 					}
@@ -75,6 +87,7 @@ class StoreClass {
 		}
 	}
 	changeTern() {
+		if (!this.turn) return
 		this.activeFigure = null
 		this.reRender = !this.reRender
 		this.figureToMove = []
@@ -111,6 +124,7 @@ class StoreClass {
 	}
 
 	setTurnUser() {
+		if (!this.turn) return
 		if (this.turn.color === whitePlayer.color) {
 			this.turn = blackPlayer
 		} else {
@@ -152,6 +166,9 @@ class StoreClass {
 		}
 
 
+	}
+	setReRender() {
+		this.reRender = !this.reRender
 	}
 	setUserData(data: userInterface | undefined) {
 		this.user = data
