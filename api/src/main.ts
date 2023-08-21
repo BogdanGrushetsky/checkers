@@ -17,13 +17,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  app.enableCors({
-    origin: [
-      'https://illustrious-zabaione-6d1aee.netlify.app/',
-    ],
-    methods: ["GET", "POST", "PATCH", "DELETE"],
-    credentials: true,
-  });
+  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();
