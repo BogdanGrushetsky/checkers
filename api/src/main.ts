@@ -14,18 +14,16 @@ async function bootstrap() {
     .addTag('cats')
     .build();
   app.use(morgan('dev'));
-  // app.useLogger(app.get(Logger));
-
   app.useGlobalPipes(new ValidationPipe());
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  app.enableCors({
-    origin: [
-      'http://localhost:5173',
-    ],
-    methods: ["GET", "POST", "PATCH", "DELETE"],
-    credentials: true,
-  });
+  // app.enableCors({
+  //   origin: [
+  //     'http://localhost:5173',
+  //   ],
+  //   methods: ["GET", "POST", "PATCH", "DELETE"],
+  //   credentials: true,
+  // });
   await app.listen(3000);
 }
 bootstrap();
